@@ -1,0 +1,10 @@
+D:\Desenvolvimento Web\VirtualStore\VirtualStore\bin\Debug\netcoreapp2.2\appsettings.Development.json
+D:\Desenvolvimento Web\VirtualStore\VirtualStore\bin\Debug\netcoreapp2.2\appsettings.json
+D:\Desenvolvimento Web\VirtualStore\VirtualStore\bin\Debug\netcoreapp2.2\Properties\launchSettings.json
+D:\Desenvolvimento Web\VirtualStore\VirtualStore\bin\Debug\netcoreapp2.2\VirtualStore.deps.json
+D:\Desenvolvimento Web\VirtualStore\VirtualStore\bin\Debug\netcoreapp2.2\VirtualStore.runtimeconfig.json
+D:\Desenvolvimento Web\VirtualStore\VirtualStore\bin\Debug\netcoreapp2.2\VirtualStore.runtimeconfig.dev.json
+D:\Desenvolvimento Web\VirtualStore\VirtualStore\bin\Debug\netcoreapp2.2\VirtualStore.dll
+D:\Desenvolvimento Web\VirtualStore\VirtualStore\obj\Debug\netcoreapp2.2\VirtualStore.csprojAssemblyReference.cache
+D:\Desenvolvimento Web\VirtualStore\VirtualStore\obj\Debug\netcoreapp2.2\VirtualStore.AssemblyInfoInputs.cache
+D:\Desenvolvimento Web\VirtualStore\VirtualStore\obj\Debug\netcoreapp2.2\VirtualStore.AssemblyInfo.cs
