@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using VirtualStore.Models;
+using VirtualStore.Libraries;
 
 namespace VirtualStore.Controllers
 {
@@ -17,6 +19,21 @@ namespace VirtualStore.Controllers
         {
             return View();
         }
+
+        public IActionResult ContactRegister()
+        {
+            Contact contact = new Contact();
+
+            contact.Name = HttpContext.Request.Form["Name"];
+            contact.Email = HttpContext.Request.Form["Email"];
+            contact.Comments = HttpContext.Request.Form["Comments"];
+
+            EmailContact.SendContacByEmail(contact);
+
+            return new ContentResult() { Content = string.Format( "Dados recebidos com sucesso <br/> Nome: {0} <br/> Email: {1} Comments {2} ", contact.Name , contact.Email , contact.Comments),ContentType="text/html" };
+        }
+
+
 
         public IActionResult Cart()
         {
