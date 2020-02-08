@@ -97,7 +97,6 @@ D:\Desenvolvimento Web\VirtualStore\VirtualStore\bin\Debug\netcoreapp3.0\ru\Micr
 D:\Desenvolvimento Web\VirtualStore\VirtualStore\bin\Debug\netcoreapp3.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Desenvolvimento Web\VirtualStore\VirtualStore\bin\Debug\netcoreapp3.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Desenvolvimento Web\VirtualStore\VirtualStore\bin\Debug\netcoreapp3.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Desenvolvimento Web\VirtualStore\VirtualStore\obj\Debug\netcoreapp3.0\VirtualStore.MvcApplicationPartsAssemblyInfo.cache
 D:\Desenvolvimento Web\VirtualStore\VirtualStore\obj\Debug\netcoreapp3.0\VirtualStore.RazorAssemblyInfo.cache
 D:\Desenvolvimento Web\VirtualStore\VirtualStore\obj\Debug\netcoreapp3.0\VirtualStore.RazorAssemblyInfo.cs
 D:\Desenvolvimento Web\VirtualStore\VirtualStore\obj\Debug\netcoreapp3.0\VirtualStore.TagHelpers.input.cache
@@ -114,3 +113,4 @@ D:\Desenvolvimento Web\VirtualStore\VirtualStore\obj\Debug\netcoreapp3.0\Razor\V
 D:\Desenvolvimento Web\VirtualStore\VirtualStore\obj\Debug\netcoreapp3.0\Razor\Views\Home\CustomerRegister.cshtml.g.cs
 D:\Desenvolvimento Web\VirtualStore\VirtualStore\obj\Debug\netcoreapp3.0\VirtualStore.Libraries.Lang.Message.resources
 D:\Desenvolvimento Web\VirtualStore\VirtualStore\obj\Debug\netcoreapp3.0\VirtualStore.csproj.GenerateResource.cache
+D:\Desenvolvimento Web\VirtualStore\VirtualStore\obj\Debug\netcoreapp3.0\VirtualStore.MvcApplicationPartsAssemblyInfo.cache

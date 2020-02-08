@@ -42,7 +42,7 @@ namespace VirtualStore.Controllers
 
                 if (isValid)
                 {
-                    //EmailContact.SendContacByEmail(contact);
+                    EmailContact.SendContacByEmail(contact);
 
                     //return new ContentResult() { Content = string.Format( "Dados recebidos com sucesso <br/> Nome: {0} <br/> Email: {1} Comments {2} ", contact.Name , contact.Email , contact.Comments),ContentType="text/html" };
 

@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.0": {
       "VirtualStore/1.0.0": {
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": "2.2.0",
           "Microsoft.EntityFrameworkCore.Tools": "2.2.0",
           "Microsoft.Extensions.Logging.Debug": "3.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.0.0",
@@ -617,6 +618,9 @@
             "assemblyVersion": "2.2.0.0",
             "fileVersion": "2.2.0.18316"
           }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.dll": {}
         }
       },
       "Microsoft.EntityFrameworkCore.Abstractions/2.2.0": {
@@ -625,6 +629,9 @@
             "assemblyVersion": "2.2.0.0",
             "fileVersion": "2.2.0.18316"
           }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {}
         }
       },
       "Microsoft.EntityFrameworkCore.Analyzers/2.2.0": {},
@@ -934,6 +941,9 @@
             "assemblyVersion": "2.2.0.0",
             "fileVersion": "2.2.0.30000"
           }
+        },
+        "compile": {
+          "lib/netstandard1.0/Remotion.Linq.dll": {}
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
@@ -1206,6 +1216,9 @@
             "assemblyVersion": "3.2.0.0",
             "fileVersion": "3.2.0.702"
           }
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Interactive.Async.dll": {}
         }
       },
       "System.IO/4.3.0": {
