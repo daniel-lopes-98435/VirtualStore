@@ -16,7 +16,7 @@ namespace VirtualStore.Libraries
             //Configure Email Server
             SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
             smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new NetworkCredential("daniel.lopes.codbr@gmail.com", "codbr98435");
+            smtp.Credentials = new NetworkCredential("daniel.lopes.codbr@gmail.com", "");
             smtp.EnableSsl = true;
 
             //Define message

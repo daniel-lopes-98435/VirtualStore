@@ -1,6 +1,8 @@
 ﻿
 @{
     ViewData["Title"] = "Contact";
+    //In case of error, the model keep the information typed
+    VirtualStore.Models.Contact contact = (VirtualStore.Models.Contact) ViewData["Contact"];
 }
 
     <main role="main">
@@ -38,7 +40,15 @@
                     <div id="code_payment">
                         <article class="card">
                             <div class="card-body p-5">
-                                <p class="alert alert-success">Mensagem de sucesso!</p>
+                                @if (ViewData["MSG_S"] != null)
+                                {
+                                    <p class="alert alert-success">@ViewData["MSG_S"]</p>
+                                }
+                                @if (ViewData["MSG_E"] != null)
+                                {
+                                    <p class="alert alert-danger">@Html.Raw(ViewData["MSG_E"])</p>
+                                }
+
 
                                 <form role="form" method="post" action="/Home/ContactRegister">
                                     <div class="form-group">
@@ -48,7 +58,7 @@
                                                 <span class="input-group-text"><i class="fa fa-user"></i></span>
                                             </div>
                                             <input type="text" class="form-control" name="name" placeholder=""
-                                                   required="">
+                                                   required="" value="@(contact != null ? contact.Name: null)">
                                         </div>
                                     </div>
 
@@ -58,7 +68,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fa fa-at"></i></span>
                                             </div>
-                                            <input type="text" class="form-control" id="email" name="email" placeholder="">
+                                            <input type="text" class="form-control" id="email" name="email" placeholder="" value="@(contact != null ? contact.Email: null)">
                                         </div>
                                     </div>
 
@@ -67,8 +77,7 @@
                                             <div class="form-group">
                                                 <label for="comments"><span class="hidden-xs">Texto</span> </label>
                                                 <div class="form-inline">
-                                                    <textarea class="form-control" id="comments" name="comments" style="width:100%"></textarea>
-
+                                                    <textarea class="form-control" id="comments" name="comments" style="width:100%">@(contact != null ? contact.Comments: null)</textarea>
                                                 </div>
                                             </div>
                                         </div>

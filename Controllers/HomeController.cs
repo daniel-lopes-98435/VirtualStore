@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 using Microsoft.AspNetCore.Mvc;
 using VirtualStore.Models;
 using VirtualStore.Libraries;
+using System.ComponentModel.DataAnnotations;
+using System.Text;
 
 namespace VirtualStore.Controllers
 {
@@ -22,15 +25,52 @@ namespace VirtualStore.Controllers
 
         public IActionResult ContactRegister()
         {
-            Contact contact = new Contact();
+            try
+            {
+                Contact contact = new Contact();
 
-            contact.Name = HttpContext.Request.Form["Name"];
-            contact.Email = HttpContext.Request.Form["Email"];
-            contact.Comments = HttpContext.Request.Form["Comments"];
+                contact.Name = HttpContext.Request.Form["Name"];
+                contact.Email = HttpContext.Request.Form["Email"];
+                contact.Comments = HttpContext.Request.Form["Comments"];
 
-            EmailContact.SendContacByEmail(contact);
+                //Take the list of results
+                var messageList = new List<ValidationResult>(); 
+                //Create a validationContext
+                var context = new ValidationContext(contact);
+                //Check validation
+                bool isValid = Validator.TryValidateObject(contact, context, messageList,true);
 
-            return new ContentResult() { Content = string.Format( "Dados recebidos com sucesso <br/> Nome: {0} <br/> Email: {1} Comments {2} ", contact.Name , contact.Email , contact.Comments),ContentType="text/html" };
+                if (isValid)
+                {
+                    //EmailContact.SendContacByEmail(contact);
+
+                    //return new ContentResult() { Content = string.Format( "Dados recebidos com sucesso <br/> Nome: {0} <br/> Email: {1} Comments {2} ", contact.Name , contact.Email , contact.Comments),ContentType="text/html" };
+
+                    ViewData["MSG_S"] = "Mensagem de contato enviada com sucesso";
+                }
+                else
+                {
+                    StringBuilder sb = new StringBuilder();
+                    foreach(var msg in messageList)
+                    {
+                        sb.Append(msg.ErrorMessage + "<br />");
+                    }
+                    ViewData["MSG_E"] = sb.ToString();
+                    ViewData["Contact"] = contact;
+
+                }
+
+            }
+            catch (Exception)
+            {
+
+                ViewData["MSG_E"] = "Opps! Tivemos um erro, tente novamente mais tarde!";
+
+                //TODO - create a log
+            }
+
+
+            return View("Contact");
         }
 
 

@@ -112,3 +112,5 @@ D:\Desenvolvimento Web\VirtualStore\VirtualStore\obj\Debug\netcoreapp3.0\Razor\V
 D:\Desenvolvimento Web\VirtualStore\VirtualStore\obj\Debug\netcoreapp3.0\Razor\Views\Home\Cart.cshtml.g.cs
 D:\Desenvolvimento Web\VirtualStore\VirtualStore\obj\Debug\netcoreapp3.0\Razor\Views\Home\SignIn.cshtml.g.cs
 D:\Desenvolvimento Web\VirtualStore\VirtualStore\obj\Debug\netcoreapp3.0\Razor\Views\Home\CustomerRegister.cshtml.g.cs
+D:\Desenvolvimento Web\VirtualStore\VirtualStore\obj\Debug\netcoreapp3.0\VirtualStore.Libraries.Lang.Message.resources
+D:\Desenvolvimento Web\VirtualStore\VirtualStore\obj\Debug\netcoreapp3.0\VirtualStore.csproj.GenerateResource.cache
