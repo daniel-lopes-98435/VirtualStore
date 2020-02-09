@@ -8,14 +8,43 @@ using VirtualStore.Models;
 using VirtualStore.Libraries;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using VirtualStore.Database;
 
 namespace VirtualStore.Controllers
 {
     public class HomeController : Controller
     {
+        //Declare context, this maps the connection with database
+        private VirtualStoreContext _context;
+        public HomeController(VirtualStoreContext contex)
+        {
+            _context = contex;
+        }
         public IActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Index([FromForm] NewsletterEmail newsletter)
+        {
+            if (ModelState.IsValid)
+            {
+                //TODO - Save data on Database
+                _context.newsletters.Add(newsletter);
+                _context.SaveChanges();
+
+                TempData["MSG_S"] = "Email cadastrado com sucesso, a partir de agora você receberá nossa promoções, fique atento";
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                return View();
+            }
+
+
+
+
         }
 
         public IActionResult Contact()

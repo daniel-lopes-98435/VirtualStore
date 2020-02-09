@@ -1,4 +1,4 @@
-﻿
+﻿@model VirtualStore.Models.NewsletterEmail
 @{
     ViewData["Title"] = "Index";
 }
@@ -66,7 +66,7 @@
     </div>
 
     <!-- Lista de Produtos
-            ================================================== -->
+        ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
 
@@ -155,6 +155,37 @@
             </div>
         </div>
     </div>
+    @using (Html.BeginForm(null, null, null, FormMethod.Post, false, new { @action = Url.Action("Index", "Home") + "#formulario" }))
 
+    {
+        <div class="container" id="formulario">
+            <div class="input-group col-sm-8 offset-sm-2">
+
+                @if (TempData["MSG_S"] != null)
+                {
+                    <p class="alert alert-success">@TempData["MSG_S"]</p>
+                }
+            </div>
+            <div class="input-group col-sm-6 offset-sm-2">
+                <label for="Email"><span class="hidden-xs">Cadastre seu e-mail para receber nossa promoções</span> </label>
+            </div>
+            <div class="form-row ">
+                <div class="input-group col-sm-6 offset-sm-2">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                    </div>
+                    @Html.EditorFor(e => e.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    <!--<input type="text" id="email" name="e-mail" class="form-control">-->
+                </div>
+                <div class="col-sm-2">
+                    <button class="btn btn-success">Cadastrar</button>
+                </div>
+                <div class="input-group col-sm-6 offset-sm-2">
+                    <span style="color:red">@Html.ValidationMessageFor(e => e.Email)</span>
+                </div>
+            </div>
+        </div>
+
+    }
 </main>
 
