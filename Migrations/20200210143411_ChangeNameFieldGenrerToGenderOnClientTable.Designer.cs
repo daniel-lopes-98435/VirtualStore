@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VirtualStore.Database;
 
 namespace VirtualStore.Migrations
 {
     [DbContext(typeof(VirtualStoreContext))]
-    partial class VirtualStoreContextModelSnapshot : ModelSnapshot
+    [Migration("20200210143411_ChangeNameFieldGenrerToGenderOnClientTable")]
+    partial class ChangeNameFieldGenrerToGenderOnClientTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

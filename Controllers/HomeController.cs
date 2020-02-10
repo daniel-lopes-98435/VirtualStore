@@ -41,10 +41,6 @@ namespace VirtualStore.Controllers
             {
                 return View();
             }
-
-
-
-
         }
 
         public IActionResult Contact()
@@ -102,13 +98,6 @@ namespace VirtualStore.Controllers
             return View("Contact");
         }
 
-
-
-        public IActionResult Cart()
-        {
-            return View();
-        }
-
         public IActionResult SignIn()
         {
             return View();
@@ -118,5 +107,32 @@ namespace VirtualStore.Controllers
         {
             return View();
         }
+        
+        [HttpPost]
+        public IActionResult CustomerRegister([FromForm] Client client)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Clients.Add(client);
+                _context.SaveChanges();
+                TempData["MSG_S"] = "Cadastro realizado com sucesso";
+                //TODO - Implementar redirecionamentos diferentes (Painel, Carrinho de compra, outros)
+                //TODO - Ajustar a formatação da data
+                return RedirectToAction(nameof(CustomerRegister));
+
+            }
+            else
+            {
+                return View();
+            }
+            
+        }
+
+
+        public IActionResult Cart()
+        {
+            return View();
+        }
+
     }
 }

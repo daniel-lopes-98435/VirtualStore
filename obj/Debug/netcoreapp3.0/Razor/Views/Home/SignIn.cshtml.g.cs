@@ -13,8 +13,31 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4c151d7e5ec0285d7ab0f94c1de3687feea6ffc3", @"/Views/Home/SignIn.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a9af4978b9c2bfca24ef48e96efe5f8573634464", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_SignIn : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
+        #line hidden
+        #pragma warning disable 0649
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext __tagHelperExecutionContext;
+        #pragma warning restore 0649
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner __tagHelperRunner = new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner();
+        #pragma warning disable 0169
+        private string __tagHelperStringValueBuffer;
+        #pragma warning restore 0169
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager __backed__tagHelperScopeManager = null;
+        private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager __tagHelperScopeManager
+        {
+            get
+            {
+                if (__backed__tagHelperScopeManager == null)
+                {
+                    __backed__tagHelperScopeManager = new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager(StartTagHelperWritingScope, EndTagHelperWritingScope);
+                }
+                return __backed__tagHelperScopeManager;
+            }
+        }
+        private global::Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper;
+        private global::Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
@@ -42,13 +65,12 @@ namespace AspNetCore
                         <article class=""card-body"">
                             <a href=""/Home/CustomerRegister"" class=""float-right btn btn-outline-primary"">Sign up</a>
                             <h4 class=""card-title mb-4 mt-1"">Sign in</h4>
-                            <form>
-                                <div class=""form-group"">
-                                    <label>Your email</label>
-                                    <input");
-            BeginWriteAttribute("name", " name=\"", 896, "\"", 903, 0);
-            EndWriteAttribute();
-            WriteLiteral(@" class=""form-control"" placeholder=""Email"" type=""email"">
+                            ");
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4c151d7e5ec0285d7ab0f94c1de3687feea6ffc33778", async() => {
+                WriteLiteral("\r\n                                <div class=\"form-group\">\r\n                                    <label>Your email</label>\r\n                                    <input");
+                BeginWriteAttribute("name", " name=\"", 896, "\"", 903, 0);
+                EndWriteAttribute();
+                WriteLiteral(@" class=""form-control"" placeholder=""Email"" type=""email"">
                                 </div>
                                 <div class=""form-group"">
                                     <a class=""float-right"" href=""#"">Forgot?</a>
@@ -63,10 +85,21 @@ namespace AspNetCore
                                 <div class=""form-group"">
                                     <button type=""submit"" class=""btn btn-primary btn-block""> Login </button>
                                 </div>
-                            </form>
-                        </article>
-");
-            WriteLiteral("                    </div>\r\n                </div>\r\n            </aside>\r\n        </section>\r\n    </main>\r\n\r\n");
+                            ");
+            }
+            );
+            __Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper);
+            __Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper);
+            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+            if (!__tagHelperExecutionContext.Output.IsContentModified)
+            {
+                await __tagHelperExecutionContext.SetOutputContentAsync();
+            }
+            Write(__tagHelperExecutionContext.Output);
+            __tagHelperExecutionContext = __tagHelperScopeManager.End();
+            WriteLiteral("\r\n                        </article>\r\n                    </div>\r\n                </div>\r\n            </aside>\r\n        </section>\r\n    </main>\r\n\r\n");
         }
         #pragma warning restore 1998
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
