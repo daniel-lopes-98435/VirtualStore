@@ -9,33 +9,46 @@ using VirtualStore.Libraries;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 using VirtualStore.Database;
+using VirtualStore.Repositories.Contracts;
+using VirtualStore.Libraries.Login;
+using VirtualStore.Libraries.Filter;
 
 namespace VirtualStore.Controllers
 {
     public class HomeController : Controller
     {
         //Declare context, this maps the connection with database
-        private VirtualStoreContext _context;
-        public HomeController(VirtualStoreContext contex)
+        //private VirtualStoreContext _repository;
+
+        //Declare context, this maps the connection with database as a repository
+        private IClientRepository _clientRepository;
+        private INewsletterRepository _newsletterRepository;
+        private ClientLogin _clientLogin;
+        public HomeController(IClientRepository clientRepository, INewsletterRepository newsletterRepository, ClientLogin clientLogin)
         {
-            _context = contex;
+            _clientRepository = clientRepository;
+            _newsletterRepository = newsletterRepository;
+            _clientLogin = clientLogin;
         }
         public IActionResult Index()
         {
+
             return View();
         }
 
         [HttpPost]
         public IActionResult Index([FromForm] NewsletterEmail newsletter)
         {
+
             if (ModelState.IsValid)
             {
+
                 //TODO - Save data on Database
-                _context.newsletters.Add(newsletter);
-                _context.SaveChanges();
+                _newsletterRepository.AddNewsletter(newsletter);
 
                 TempData["MSG_S"] = "Email cadastrado com sucesso, a partir de agora você receberá nossa promoções, fique atento";
                 return RedirectToAction(nameof(Index));
+
             }
             else
             {
@@ -59,11 +72,11 @@ namespace VirtualStore.Controllers
                 contact.Comments = HttpContext.Request.Form["Comments"];
 
                 //Take the list of results
-                var messageList = new List<ValidationResult>(); 
+                var messageList = new List<ValidationResult>();
                 //Create a validationContext
                 var context = new ValidationContext(contact);
                 //Check validation
-                bool isValid = Validator.TryValidateObject(contact, context, messageList,true);
+                bool isValid = Validator.TryValidateObject(contact, context, messageList, true);
 
                 if (isValid)
                 {
@@ -76,7 +89,7 @@ namespace VirtualStore.Controllers
                 else
                 {
                     StringBuilder sb = new StringBuilder();
-                    foreach(var msg in messageList)
+                    foreach (var msg in messageList)
                     {
                         sb.Append(msg.ErrorMessage + "<br />");
                     }
@@ -103,18 +116,44 @@ namespace VirtualStore.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult SignIn([FromForm] Client client)
+        {
+            Client clientDB = _clientRepository.Login(client.Email, client.Password);
+            if (clientDB != null)
+            {
+                _clientLogin.Login(clientDB);
+
+                return new RedirectResult(Url.Action(nameof(Painel)));
+            }
+            else
+            {
+                ViewData["MSG_E"] = "Usuário ou senha inválido";
+                return View();
+            }
+        }
+
+        [HttpGet]
+        [AuthorizationClientFilter]
+        public IActionResult Painel()
+        {
+            return new ContentResult() { Content = "Este é o Painel do Cliente" };
+
+        }
+
         public IActionResult CustomerRegister()
         {
             return View();
         }
-        
+
         [HttpPost]
         public IActionResult CustomerRegister([FromForm] Client client)
         {
             if (ModelState.IsValid)
             {
-                _context.Clients.Add(client);
-                _context.SaveChanges();
+                _clientRepository.AddClient(client);
+
+
                 TempData["MSG_S"] = "Cadastro realizado com sucesso";
                 //TODO - Implementar redirecionamentos diferentes (Painel, Carrinho de compra, outros)
                 //TODO - Ajustar a formatação da data
@@ -125,7 +164,7 @@ namespace VirtualStore.Controllers
             {
                 return View();
             }
-            
+
         }
 
 

@@ -15,6 +15,7 @@ namespace VirtualStore.Database
         }
 
         public DbSet<Client> Clients { get; set; }
-        public DbSet<NewsletterEmail> newsletters { get; set; }
+        public DbSet<NewsletterEmail> Newsletters { get; set; }
+        public DbSet<Collaborator> Collaborators { get; set; }
     }
 }

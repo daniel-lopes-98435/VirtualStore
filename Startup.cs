@@ -10,10 +10,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
 
 using VirtualStore.Database;
-
-
-
-
+using VirtualStore.Repositories.Contracts;
+using VirtualStore.Repositories;
+using VirtualStore.Libraries.Session;
+using VirtualStore.Libraries.Login;
 
 namespace VirtualStore
 {
@@ -29,6 +29,21 @@ namespace VirtualStore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Disponibilizar a utilização de sessão
+            services.AddHttpContextAccessor();
+
+            //Include IClientRepository interface to be used as Repository
+            services.AddScoped<IClientRepository, ClientRepository>();
+            services.AddScoped<INewsletterRepository, NewsletterRepository>();
+
+            // Save data to memory
+            services.AddMemoryCache();
+            services.AddSession(options => { });
+
+            //Disponilizar as sessões para todo o projeto
+            services.AddScoped<ManageSession>();
+            services.AddScoped<ClientLogin>();
+
             services.AddControllersWithViews();
 
             //Connect to database
@@ -55,6 +70,9 @@ namespace VirtualStore
             app.UseRouting();
 
             app.UseAuthorization();
+
+            //Now we can use Session
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

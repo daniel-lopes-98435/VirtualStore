@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 
 
-namespace VirtualStore.Repositories
+namespace VirtualStore.Repositories.Contracts
 {
-    interface IClientRepository
+    public interface IClientRepository
     {
         Client Login(string Email, string Password);
 
         //CRUD
         void AddClient(Client client);
         void UpdateClient(Client client);
-        void DeleteClient(Client client);
+        void DeleteClient(int Id);
         Client GetClient(int Id);
-        List<Client> GetAllClient();
+        IEnumerable<Client> GetAllClient();
 
     }
 }
