@@ -35,6 +35,7 @@ namespace VirtualStore
             //Include IClientRepository interface to be used as Repository
             services.AddScoped<IClientRepository, ClientRepository>();
             services.AddScoped<INewsletterRepository, NewsletterRepository>();
+            services.AddScoped<ICollaboratorRepository, CollaboratorRepository>();
 
             // Save data to memory
             services.AddMemoryCache();
@@ -43,6 +44,7 @@ namespace VirtualStore
             //Disponilizar as sessões para todo o projeto
             services.AddScoped<ManageSession>();
             services.AddScoped<ClientLogin>();
+            services.AddScoped<CollaboratorLogin>();
 
             services.AddControllersWithViews();
 
@@ -74,11 +76,19 @@ namespace VirtualStore
             //Now we can use Session
             app.UseSession();
 
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    name: "areaRoute",
+                    pattern: "{area:exists}/{controller}/{action}");
+
+
+                endpoints.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
             });
 
         }

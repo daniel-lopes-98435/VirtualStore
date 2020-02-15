@@ -58,6 +58,30 @@ namespace VirtualStore.Migrations
                     b.ToTable("Clients");
                 });
 
+            modelBuilder.Entity("VirtualStore.Models.Collaborator", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Collaborators");
+                });
+
             modelBuilder.Entity("VirtualStore.Models.NewsletterEmail", b =>
                 {
                     b.Property<int>("Id")

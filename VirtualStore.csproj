@@ -32,6 +32,11 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Collaborator\Models\" />
+    <Folder Include="wwwroot\resources\lib\bootstrap-4.2.1-dist\" />
+  </ItemGroup>
+
 
 
 </Project>
