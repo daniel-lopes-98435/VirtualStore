@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using VirtualStore.Libraries.Filter;
 using VirtualStore.Libraries.Login;
 using VirtualStore.Repositories.Contracts;
 
@@ -43,6 +44,25 @@ namespace VirtualStore.Areas.Collaborator.Controllers
             }
         }
 
+        [AuthorizationCollaboratorFilter]
+        public IActionResult Signout()
+        {
+            _collaboratorLogin.Logout();
+            return RedirectToAction("SignIn","Home");
+        }
+
+
+        public IActionResult CreateNewPassword()
+        {
+            return View();
+        }
+
+        public IActionResult PasswordRecover()
+        {
+            return View();
+        }
+
+        [AuthorizationCollaboratorFilter]
         public IActionResult Painel()
         {
             return View();
